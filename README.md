@@ -1,2 +1,1 @@
-"# Nextjs-app" 
-"# Nextjs-app" 
+"# strapi-back-next-project" 
