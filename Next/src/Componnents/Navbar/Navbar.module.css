@@ -1,0 +1,25 @@
+.container {
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: bold;
+  padding-left: 30px;
+}
+
+.links {
+  display: flex;
+  gap: 24px;
+}
+
+.login {
+  background: var(--color-primary);
+  padding: 11px;
+  color: #111;
+  font-weight: 500;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+

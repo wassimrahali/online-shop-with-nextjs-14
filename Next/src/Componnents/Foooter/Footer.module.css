@@ -1,0 +1,35 @@
+.container{
+    padding-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.social_media{
+    display: flex;
+}
+
+
+
+
+.icons{
+    gap:20px;
+    display: flex;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.img{
+    opacity: 0.8;
+    filter: grayscale(100%);
+
+
+}
+.img:hover{
+    filter: grayscale(0%);
+
+    opacity: 1;
+    gap:20px;
+    display: flex;
+}
