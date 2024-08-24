@@ -55,3 +55,6 @@ body {
 .cl-card.cl-signIn-start {
   box-shadow: none !important;
 }
+.cl-card.cl-signUp-start {
+  box-shadow: none !important;
+}
