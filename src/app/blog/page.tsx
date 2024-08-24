@@ -68,7 +68,7 @@ const Blog = () => {
   return (
  <>
     <div className="text-center">
-    <h1 className="text-3xl text-primary font-semibold">Blog</h1>
+    <h1 className= "mt-20 text-3xl text-primary font-semibold">Blog</h1>
     <p className="mt-3 text-gray-500">
       Blogs that are loved by the community. Updated every hour.
     </p>
@@ -102,18 +102,18 @@ const Blog = () => {
                   />
                 </div>
                 <div className="ml-3">
-                  <span className="block text-gray-400">{product.title}</span>
+                  <span className="block text-green-600">{product.title}</span>
                 </div>
               </div>
               <div className="pt-3 ml-4 mr-2 mb-3">
-                <h3 className="text-xl text-gray-400">{product.title}</h3>
-                <p className="text-gray-400 text-sm mt-1">
+                <h3 className="text-xl text-green-600">{product.title}</h3>
+                <p className="text-slate-600 text-sm mt-1">
                   {product.description}
                 </p>
               </div>
             </div>
             <div className="mt-auto pt-4 pb-4 ml-4 mr-4">
-              <button className="w-full px-4 py-2 bg-primary text-gray-900 rounded hover:bg-primary">
+              <button className="w-full px-4 py-2 bg-primary text-white rounded text-sm hover:bg-primary">
                 Learn More
               </button>
             </div>
