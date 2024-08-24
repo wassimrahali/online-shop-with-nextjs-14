@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Skeleton from "../../../Componnents/Skeleton/Skeleton";
@@ -8,8 +8,9 @@ import { useCart } from "@/Context/CartContext";
 interface Params {
   id: string;
 }
+
 const Post = ({ params }: { params: Params }) => {
-  const { addToCart, setAddToCart } = useCart();
+  const { cartItems, addToCart } = useCart();
   const [data, setData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -33,6 +34,10 @@ const Post = ({ params }: { params: Params }) => {
     fetchProduct(params.id);
   }, [params.id]);
 
+  useEffect(() => {
+    console.log('Cart items in Post:', cartItems);
+  }, [cartItems]);
+
   if (loading) {
     return <Skeleton />;
   }
@@ -46,7 +51,8 @@ const Post = ({ params }: { params: Params }) => {
   }
 
   const handleAddToCart = () => {
-    setAddToCart(addToCart + 1);
+    const itemToAdd = { id: data.id, title: data.title, price: data.price,image: data.image }; // Adjust as necessary
+    addToCart(itemToAdd);
   };
 
   return (
