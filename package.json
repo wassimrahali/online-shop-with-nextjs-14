@@ -12,6 +12,8 @@
     "@clerk/nextjs": "^4.30.0",
     "@heroicons/react": "^2.1.5",
     "@next/env": "^14.2.6",
+    "@stripe/react-stripe-js": "^2.8.0",
+    "@stripe/stripe-js": "^4.3.0",
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18"

@@ -2,26 +2,13 @@
 import React from 'react';
 import { useCart } from '@/Context/CartContext'; // Adjust path based on your project structure
 import Image from 'next/image';
+import Link from 'next/link';
 const OrderComponent: React.FC = () => {
-  const { cartItems, removeFromCart, updateQuantity } = useCart();
+  const { cartItems, removeFromCart, } = useCart();
 
   const handleRemove = (id: string) => {
     removeFromCart(id);
   };
-
-  const handleQuantityChange = (id: string, quantity: number) => {
-    updateQuantity(id, quantity);
-  };
-
-  const calculateTotal = () => {
-    const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
-    const vat = subtotal * 0.1; // Example VAT calculation
-    const discount = 20; // Example discount
-    return subtotal + vat - discount;
-  };
-
-  const total = calculateTotal();
-
   return (
     <section>
       <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
@@ -41,29 +28,10 @@ const OrderComponent: React.FC = () => {
                   />
                   <div>
                     <h3 className="text-sm text-gray-900">{item.title}</h3>
-                    <dl className="mt-0.5 space-y-px text-xs text-gray-600">
-                      <div>
-                        <dt className="inline">Size:</dt>
-                        <dd className="inline">{item.size}</dd>
-                      </div>
-                      <div>
-                        <dt className="inline">Color:</dt>
-                        <dd className="inline">{item.color}</dd>
-                      </div>
-                    </dl>
+                  
                   </div>
                   <div className="flex flex-1 items-center justify-end gap-2">
-                    <form>
-                      <label htmlFor={`quantity-${item.id}`} className="sr-only">Quantity</label>
-                      <input
-                        type="number"
-                        min="1"
-                        value={item.quantity}
-                        id={`quantity-${item.id}`}
-                        onChange={(e) => handleQuantityChange(item.id, parseInt(e.target.value))}
-                        className="h-8 w-12 rounded border-gray-200 bg-gray-50 p-0 text-center text-xs text-gray-600 focus:outline-none"
-                      />
-                    </form>
+                    
                     <button
                       onClick={() => handleRemove(item.id)}
                       className="text-gray-600 transition hover:text-red-600"
@@ -94,11 +62,9 @@ const OrderComponent: React.FC = () => {
                 <dl className="space-y-0.5 text-sm text-gray-700">
                   <div className="flex justify-between">
                     <dt>Subtotal</dt>
-                    <dd>£{cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0).toFixed(2)}</dd>
                   </div>
                   <div className="flex justify-between">
                     <dt>VAT</dt>
-                    <dd>£{(cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0) * 0.1).toFixed(2)}</dd>
                   </div>
                   <div className="flex justify-between">
                     <dt>Discount</dt>
@@ -106,7 +72,6 @@ const OrderComponent: React.FC = () => {
                   </div>
                   <div className="flex justify-between text-base font-medium">
                     <dt>Total</dt>
-                    <dd>£{total.toFixed(2)}</dd>
                   </div>
                 </dl>
                 <div className="flex justify-end">
@@ -129,12 +94,12 @@ const OrderComponent: React.FC = () => {
                   </span>
                 </div>
                 <div className="flex justify-end">
-                  <a
-                    href="#"
-                    className="block rounded bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-600"
+                  <Link
+                    href="/checkout"
+                    className="block  bg-primary px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-600"
                   >
                     Checkout
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
