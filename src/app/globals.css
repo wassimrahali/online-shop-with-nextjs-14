@@ -37,3 +37,21 @@ body {
   background-color: #000000;
   color: white;
 }
+
+
+.cl-formButtonPrimary {
+  font-size: 14px;
+  text-transform: none;
+  background-color:    #eddd5e
+
+}
+
+.cl-formButtonPrimary:hover,
+.cl-formButtonPrimary:focus,
+.cl-formButtonPrimary:active {
+  background-color:  #dccc59
+}
+/* global.css */
+.cl-card.cl-signIn-start {
+  box-shadow: none !important;
+}

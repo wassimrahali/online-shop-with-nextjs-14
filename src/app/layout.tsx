@@ -6,6 +6,12 @@ import Footer from "../Componnents/Foooter/Footer";
 import ThemeProvider from "../Context/ThemeContext";
 import React from "react";
 import { ClerkProvider } from "@clerk/nextjs";
+import {
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton
+} from '@clerk/nextjs'
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,6 +32,7 @@ export default function RootLayout({
           <ThemeProvider>
             <div className="container">
               <Navbar />
+
               {children}
               <Footer />
             </div>

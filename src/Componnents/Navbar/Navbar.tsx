@@ -37,8 +37,8 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className=" w-full border-b md:border-0 md:static">
-        <div className="items-center px-4 max-w-screen-xl mx-auto md:flex md:px-8">
+      <nav className=" w-full border-b md:border-0 md:static shadow-sm ">
+        <div className="items-center px-4 max-w-screen-xl mx-auto md:flex md:px-8 ">
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
             <Link href="/">
               <Logo />
