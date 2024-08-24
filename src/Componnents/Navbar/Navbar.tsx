@@ -7,16 +7,20 @@ import DarkModeToggle from "../DarkModeToggle/DarkModeToggle";
 import { UserButton, useUser } from "@clerk/nextjs";
 import Image from "next/image";
 import Loader from "../../app/assets/loader.svg";
+import AddToCartButton from "../AddToCartButton/AddToCartButton";
+
+
 const Navbar = () => {
   const [state, setState] = useState(false);
   const [loading, setLoading] = useState(true);
-
+  
   const { user } = useUser();
+
 
   React.useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1500); 
+    }, 1500);
     return () => clearTimeout(timer);
   }, []);
 
@@ -39,6 +43,7 @@ const Navbar = () => {
   return (
     <>
       <nav className=" w-full border-b md:border-0 md:static shadow-sm ">
+        
         <div className="items-center px-4 max-w-screen-xl mx-auto md:flex md:px-8 ">
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
             <Link href="/">
@@ -47,6 +52,7 @@ const Navbar = () => {
 
             <div className="md:hidden">
               <div className="flex justify-center items-center space-x-4">
+            <AddToCartButton />
                 {!user ? (
                   <Link
                     className="bg-primary py-2 px-4 text-black font-light"

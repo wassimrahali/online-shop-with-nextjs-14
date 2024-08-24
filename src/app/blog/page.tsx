@@ -67,7 +67,7 @@ const Blog = () => {
 
   return (
     <div className="mt-5">
-      <BreadCrumps />
+      <BreadCrumps productId={""} product={""} />
     <div className="flex flex-col items-center justify-center min-h-screen py-8">
       <div className="text-center">
         <h1 className="text-3xl text-green-600 font-semibold">Blog</h1>

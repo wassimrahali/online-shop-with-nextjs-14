@@ -3,7 +3,8 @@ const nextConfig = {
     domains: [
       'upload.wikimedia.org',
       'fakestoreapi.com',
-      'images.unsplash.com'
+      'images.unsplash.com',
+      'i.imgur.com'
     ], 
   },
 };

@@ -27,7 +27,7 @@ export default function Home() {
               nobis.
             </p>
             <div >
-            <button className={styles.button}>Shop Now </button>
+            <button className={styles.button}>Shop Now</button>
             </div>
           </div>
        
