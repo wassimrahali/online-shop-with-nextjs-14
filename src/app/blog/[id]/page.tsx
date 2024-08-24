@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Skeleton from "../../../Componnents/Skeleton/Skeleton";
+import BreadCrumps from "@/Componnents/BreadCrumps/BreadCrumps";
 
 interface Params {
   id: string;
@@ -44,6 +45,8 @@ const Post = ({ params }: { params: Params }) => {
   }
 
   return (
+ <div className="mt-5">
+     <BreadCrumps product={data.title} productId={data.id}/>
     <div className="max-w-4xl mx-auto p-6">
       <header className="border-b pb-4 mb-6">
         <h1 className="text-3xl font-bold text-gray-800">{data.title}</h1>
@@ -79,6 +82,8 @@ const Post = ({ params }: { params: Params }) => {
         </div>
       </div>
     </div>
+
+ </div>
   );
 };
 

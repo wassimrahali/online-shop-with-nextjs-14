@@ -22,8 +22,8 @@ const Pagination = ({ currentPage, totalPages, onPageChange }: { currentPage: nu
         <button
           onClick={handlePrev}
           disabled={currentPage === 1}
-          className={`px-4 py-2 border rounded-lg transition-colors duration-150 ${
-            currentPage === 1 ? 'bg-gray-300 text-gray-700 cursor-not-allowed' : 'bg-gray-200 hover:bg-gray-300 text-gray-800'
+          className={`px-4 py-2 border transition-colors duration-150 ${
+            currentPage === 1 ? '  border-green-600 bg-green-600 text-white cursor-not-allowed' : 'bg-green-600 hover:bg-gray-300 text-white'
           }`}
         >
           Previous
@@ -33,8 +33,8 @@ const Pagination = ({ currentPage, totalPages, onPageChange }: { currentPage: nu
             <button
               key={page}
               onClick={() => onPageChange(page)}
-              className={`px-3 py-1 border rounded-lg transition-colors duration-150 ${
-                page === currentPage ? 'bg-primary text-white border-primary' : 'bg-white text-gray-800 border-gray-300 hover:bg-gray-100'
+              className={`px-3 py-1 border transition-colors duration-150 ${
+                page === currentPage ? 'bg-green-600 text-white border-green-600' : 'bg-white text-gray-800 border-gray-300 hover:bg-gray-100'
               }`}
             >
               {page}
@@ -44,8 +44,8 @@ const Pagination = ({ currentPage, totalPages, onPageChange }: { currentPage: nu
         <button
           onClick={handleNext}
           disabled={currentPage === totalPages}
-          className={`px-4 py-2 border rounded-lg transition-colors duration-150 ${
-            currentPage === totalPages ? 'bg-gray-300 text-gray-700 cursor-not-allowed' : 'bg-gray-200 hover:bg-gray-300 text-gray-800'
+          className={`px-4 py-2 border  transition-colors duration-150 ${
+            currentPage === totalPages ? ' border-green-600 bg-green-600 text-white cursor-not-allowed' : 'bg-green-600 hover:bg-gray-300 text-white'
           }`}
         >
           Next
