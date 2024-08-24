@@ -1,6 +1,12 @@
 import React from "react";
 import Link from "next/link";
-function BreadCrumps(props:any) {
+
+interface BreadCrumpsProps {
+  productId: string;
+  product: string;
+}
+
+const BreadCrumps: React.FC<BreadCrumpsProps> = ({ productId, product }) => {
   return (
     <nav aria-label="Breadcrumb" className="flex">
       <ol className="flex overflow-hidden rounded-lg border border-gray-200 text-gray-600">
@@ -11,7 +17,7 @@ function BreadCrumps(props:any) {
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="size-4"
+              className="h-4 w-4"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -23,11 +29,7 @@ function BreadCrumps(props:any) {
                 d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
               />
             </svg>
-
-            <Link href="/" className="ms-1.5 text-xs font-medium">
-              {" "}
-              Home{" "}
-            </Link>
+            <span className="text-xs font-medium">Home</span>
           </Link>
         </li>
 
@@ -41,6 +43,7 @@ function BreadCrumps(props:any) {
             Products
           </Link>
         </li>
+
         <li className="relative flex items-center">
           <span className="absolute inset-y-0 -start-px h-10 w-4 bg-gray-100 [clip-path:_polygon(0_0,_0%_100%,_100%_50%)] rtl:rotate-180"></span>
 
@@ -48,13 +51,12 @@ function BreadCrumps(props:any) {
             href="#"
             className="flex h-10 items-center bg-white pe-4 ps-8 text-xs font-medium transition hover:text-gray-900"
           >
-            {props.productId}
-            <span> -</span> {props.product}
+            {productId} - {product}
           </Link>
         </li>
       </ol>
     </nav>
   );
-}
+};
 
 export default BreadCrumps;
