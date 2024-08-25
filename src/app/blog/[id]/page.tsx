@@ -1,9 +1,10 @@
-"use client"
+"use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Skeleton from "../../../Componnents/Skeleton/Skeleton";
 import BreadCrumps from "@/Componnents/BreadCrumps/BreadCrumps";
 import { useCart } from "@/Context/CartContext";
+import StarRating from "../../../Componnents/StarRating/StarRating";
 
 interface Params {
   id: string;
@@ -35,7 +36,7 @@ const Post = ({ params }: { params: Params }) => {
   }, [params.id]);
 
   useEffect(() => {
-    console.log('Cart items in Post:', cartItems);
+    console.log("Cart items in Post:", cartItems);
   }, [cartItems]);
 
   if (loading) {
@@ -51,7 +52,12 @@ const Post = ({ params }: { params: Params }) => {
   }
 
   const handleAddToCart = () => {
-    const itemToAdd = { id: data.id, title: data.title, price: data.price,image: data.image }; // Adjust as necessary
+    const itemToAdd = {
+      id: data.id,
+      title: data.title,
+      price: data.price,
+      image: data.image,
+    }; // Adjust as necessary
     addToCart(itemToAdd);
   };
 
@@ -70,18 +76,25 @@ const Post = ({ params }: { params: Params }) => {
             src={data.image}
             width={300}
             height={300}
-            className="w-3/4 h-auto rounded-lg shadow-md"
+            className="w-2/4 h-auto rounded-lg shadow-md"
           />
         </div>
 
         <div className="text-gray-700 leading-relaxed">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem
-            tempora aspernatur ducimus delectus itaque fuga asperiores,
-            distinctio ipsam eos. Accusantium non doloremque quidem provident
-            blanditiis, culpa libero nisi nam reprehenderit, eius rem magnam?
-            Libero velit esse facilis laboriosam veniam dignissimos tenetur.
+          <p>{data.description}</p>
+          <p className="w-full mt-4 py-2 text-green-600 rounded text-lg">
+            {data.price} DT
           </p>
+        </div>
+
+        <div className="mt-4">
+          <div className="flex items-center">
+            <span className="mr-2">Rating:</span>
+            <StarRating
+              rating={data.rating.rate}
+              reviewCount={data.rating.count}
+            />
+          </div>
         </div>
 
         <div className="mt-12">

@@ -5,6 +5,9 @@ import Link from "next/link";
 import Image from "next/image";
 import Pagination from "./Pagination";
 import BreadCrumps from "@/Componnents/BreadCrumps/BreadCrumps";
+import StarRating from "@/Componnents/StarRating/StarRating";
+import { Rubik } from "next/font/google";
+const rubik = Rubik({ subsets: ["latin"] });
 
 const Blog = () => {
   const [data, setData] = useState<any[]>([]);
@@ -66,69 +69,58 @@ const Blog = () => {
   );
 
   return (
-    <div className="mt-5">
-      <BreadCrumps productId={""} product={""} />
-    <div className="flex flex-col items-center justify-center min-h-screen py-8">
-      <div className="text-center">
-        <h1 className="text-3xl text-green-600 font-semibold">Blog</h1>
-        <p className="mt-3 text-gray-500">
-          Blogs that are loved by the community. Updated every hour.
-        </p>
-      </div>
-      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {paginatedData.map((product: any) => (
-          <article
-            className="max-w-md mx-auto shadow-lg border rounded-md flex flex-col justify-between h-full duration-300 hover:shadow-sm"
-            key={product.id}
-          >
-            <Link href={`/blog/${product.id}`} className="flex flex-col h-full">
-              <div>
-                <Image
-                  width={500}
-                  height={300}
-                  quality={75}
-                  src={product.image}
-                  alt={product.title}
-                  className="w-full h-48 object-cover rounded-t-md"
-                />
-                <div className="flex items-center mt-2 pt-3 ml-4 mr-2">
-                  <div className="flex-none w-10 h-10 rounded-full overflow-hidden">
+    <div className={rubik.className}>
+      <div className="mt-5">
+        <BreadCrumps productId={""} product={""} />
+        <div className="flex flex-col items-center justify-center min-h-screen py-8">
+          <div className="text-center">
+            <h1 className="text-3xl text-green-600 font-semibold">Blog</h1>
+            <p className="mt-3 text-gray-500">
+              Blogs that are loved by the community. Updated every hour.
+            </p>
+          </div>
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {paginatedData.map((product: any) => (
+              <article
+                className="max-w-md mx-auto  rounded-md flex flex-col justify-between h-full duration-300 "
+                key={product.id}
+              >
+                <Link
+                  href={`/blog/${product.id}`}
+                  className="flex flex-col h-full"
+                >
+                  <div>
                     <Image
-                      width={40}
-                      height={40}
+                      width={500}
+                      height={300}
                       quality={75}
                       src={product.image}
-                      className="w-full h-full object-cover"
                       alt={product.title}
+                      className="w-full h-48 object-cover rounded-t-md"
                     />
+                    <div className="flex items-center mt-2 pt-3 ml-4 mr-2">
+                      <span className="block text-slate-900 ">
+                        {product.title}
+                      </span>
+                      <div className="flex mt-4"></div>
+                    </div>
                   </div>
-                  <div className="ml-3">
-                    <span className="block text-green-600">
-                      {product.title}
-                    </span>
+                  <div className="mt-auto pt-4 pb-4 ml-4 mr-4">
+                    <button className="w-full px-4 py-2 text-black rounded text-sm ">
+                      <p className="text-red-600"> {product.price} DT</p>
+                    </button>
                   </div>
-                </div>
-                <div className="pt-3 ml-4 mr-2 mb-3">
-                  <p className="text-slate-600 text-sm mt-1">
-                    {product.description}
-                  </p>
-                </div>
-              </div>
-              <div className="mt-auto pt-4 pb-4 ml-4 mr-4">
-                <button className="w-full px-4 py-2 bg-green-600 text-white rounded text-sm hover:bg-primary">
-                  Learn More
-                </button>
-              </div>
-            </Link>
-          </article>
-        ))}
+                </Link>
+              </article>
+            ))}
+          </div>
+        </div>
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+        />
       </div>
-    </div>
-    <Pagination
-      currentPage={currentPage}
-      totalPages={totalPages}
-      onPageChange={handlePageChange}
-    />
     </div>
   );
 };
