@@ -2,17 +2,17 @@
 import React, { useState } from "react";
 import { useCart } from "@/Context/CartContext";
 import Image from "next/image";
-import Link from "next/link";
 import { Rubik } from "next/font/google";
+import { useRouter } from "next/navigation";
 
 const rubik = Rubik({ subsets: ["latin"] });
 
 const OrderComponent: React.FC = () => {
+  const router = useRouter();
   const { cartItems, removeFromCart } = useCart();
   const [discountCode, setDiscountCode] = useState("");
   const [isDiscountApplied, setIsDiscountApplied] = useState(false);
   const [discountMessage, setDiscountMessage] = useState<string | null>(null);
-
 
   const subtotal = cartItems.reduce((acc, item) => acc + item.price, 0);
   const discount = isDiscountApplied ? subtotal * 0.2 : 0;
@@ -32,12 +32,17 @@ const OrderComponent: React.FC = () => {
     }
   };
 
+  const handleCheckout = () => {
+    router.push('/checkout?source=order');
+  };
+
   return (
     <section className="flex justify-center items-center min-h-screen py-8">
       <div className="w-full max-w-3xl mb-36 px-4 sm:px-6 lg:px-8">
-        <header className="text-center mb-8">
-          <h1 className="text-xl font-bold text-gray-900 sm:text-3xl">Cart</h1>
-        </header>
+      <header className="text-left mb-8">
+  <h1 className="text-xl font-bold text-gray-900 sm:text-3xl">YOUR CART</h1>
+</header>
+
 
         <div>
           {cartItems.length === 0 ? (
@@ -107,23 +112,23 @@ const OrderComponent: React.FC = () => {
                       value={discountCode}
                       onChange={(e) => setDiscountCode(e.target.value)}
                       placeholder="Enter discount code"
-                      className="border border-gray-300 p-2 w-full sm:w-auto"
+                      className="border border-slate-300 p-2 w-full sm:w-auto"
                     />
                     <button
                       onClick={handleApplyDiscount}
-                      className="bg-primary px-5 py-2 text-sm text-white transition hover:bg-gray-600 w-full sm:w-auto"
+                      className="bg-pink-600 px-5 py-2 text-sm text-white transition hover:bg-gray-600 w-full sm:w-auto"
                     >
                       Apply
                     </button>
                   </div>
 
                   <div className="flex justify-between mt-8">
-                    <Link
-                      href="/checkout"
+                    <button
+                      onClick={handleCheckout}
                       className="bg-green-400 px-5 py-2 text-sm text-white transition hover:bg-gray-600 w-full sm:text-center"
                     >
                       Checkout
-                    </Link>
+                    </button>                  
                   </div>
 
                   {discountMessage && (
