@@ -106,7 +106,7 @@ const Blog = () => {
                   </div>
                   <div className="mt-auto pt-4 pb-4 ml-4 mr-4">
                     <button className="w-full px-4 py-2 text-black rounded text-sm ">
-                      <p className="text-red-600"> {product.price} DT</p>
+                      <p className="text-green-500"> {product.price} DT</p>
                     </button>
                   </div>
                 </Link>

@@ -115,7 +115,7 @@ const OrderComponent: React.FC = () => {
                     />
                     <button
                       onClick={handleApplyDiscount}
-                      className="bg-pink-600 px-5 py-2 text-sm text-white transition hover:bg-gray-600 w-full sm:w-auto"
+                      className="bg-slate-800 px-5 py-2 text-sm text-white transition hover:bg-gray-600 w-full sm:w-auto"
                     >
                       Apply
                     </button>
@@ -124,7 +124,7 @@ const OrderComponent: React.FC = () => {
                   <div className="flex justify-between mt-8">
                     <button
                       onClick={handleCheckout}
-                      className="bg-green-400 px-5 py-2 text-sm text-white transition hover:bg-gray-600 w-full sm:text-center"
+                      className="bg-primary px-5 py-2 text-sm text-white transition hover:bg-gray-600 w-full sm:text-center"
                     >
                       Checkout
                     </button>                  
