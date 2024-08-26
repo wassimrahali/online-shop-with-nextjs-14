@@ -39,10 +39,9 @@ const OrderComponent: React.FC = () => {
   return (
     <section className="flex justify-center items-center min-h-screen py-8">
       <div className="w-full max-w-3xl mb-36 px-4 sm:px-6 lg:px-8">
-      <header className="text-left mb-8">
-  <h1 className="text-xl font-bold text-gray-900 sm:text-3xl">YOUR CART</h1>
-</header>
-
+      <header className="text-center mb-8">
+          <h1 className="text-xl font-bold text-gray-900 sm:text-3xl">Cart</h1>
+        </header>
 
         <div>
           {cartItems.length === 0 ? (
