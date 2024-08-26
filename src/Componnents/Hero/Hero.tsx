@@ -5,6 +5,7 @@ import hero from "../../app/assets/hero.svg";
 import React from "react";
 function Hero() {
   return (
+    
     <div className="flex flex-col-reverse sm:flex-row items-center justify-between px-4 py-8">
       <div className="text-center sm:text-left sm:w-1/2">
         <div className={styles.col}>

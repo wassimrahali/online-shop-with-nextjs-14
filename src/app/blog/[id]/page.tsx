@@ -1,3 +1,4 @@
+// components/Post.tsx
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
@@ -6,7 +7,11 @@ import BreadCrumps from "@/Componnents/BreadCrumps/BreadCrumps";
 import { useCart } from "@/Context/CartContext";
 import StarRating from "../../../Componnents/StarRating/StarRating";
 import { Rubik } from "next/font/google";
+import RelatedProducts from "@/Componnents/Category/RelatedComponnents"; // Import the new component
+
+
 const rubik = Rubik({ subsets: ["latin"] });
+
 interface Params {
   id: string;
 }
@@ -14,6 +19,7 @@ interface Params {
 const Post = ({ params }: { params: Params }) => {
   const { cartItems, addToCart } = useCart();
   const [data, setData] = useState<any>(null);
+  const [relatedProducts, setRelatedProducts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -26,13 +32,20 @@ const Post = ({ params }: { params: Params }) => {
         }
         const productData = await res.json();
         setData(productData);
+
+        const categoryRes = await fetch(`https://fakestoreapi.com/products/category/${productData.category}`);
+        if (!categoryRes.ok) {
+          throw new Error("Failed to fetch related products");
+        }
+        const relatedData = await categoryRes.json();
+        setRelatedProducts(relatedData.filter((item: any) => item.id !== id));
         setLoading(false);
       } catch (error) {
         setError("Failed to load product data.");
         setLoading(false);
       }
     };
-    
+
     fetchProduct(params.id);
   }, [params.id]);
 
@@ -43,7 +56,7 @@ const Post = ({ params }: { params: Params }) => {
   if (loading) {
     return <Skeleton />;
   }
-  
+
   if (error) {
     return (
       <div className="p-6 text-center text-red-600">
@@ -51,48 +64,43 @@ const Post = ({ params }: { params: Params }) => {
       </div>
     );
   }
-  
 
-  
-  
   const handleAddToCart = async () => {
     // Prepare the item data to be sent to Strapi
     const itemToAdd = {
       id: data.id,
       title: data.title,
       price: data.price,
-      description: data.description, // Assuming description is needed
-      image:data.image
-      
+      description: data.description,
+      image: data.image
     };
-  
+
     addToCart(itemToAdd);
-    
+
     const requestData = {
       data: {
         title: itemToAdd.title,
         description: itemToAdd.description,
         price: itemToAdd.price,
-        image:itemToAdd.image
-
-      },
+        image: itemToAdd.image
+      }
     };
-  
+
     try {
       const res = await fetch('http://127.0.0.1:1337/api/carts', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json'
         },
-        body: JSON.stringify(requestData),
+        body: JSON.stringify(requestData)
       });
-  
+
       if (!res.ok) {
         const errorResponse = await res.json();
         console.log('Error response:', errorResponse);
         throw new Error('Failed to add product to cart on the server');
       }
-  
+
       const responseData = await res.json();
       console.log('Product added to server cart:', responseData);
     } catch (error) {
@@ -100,10 +108,8 @@ const Post = ({ params }: { params: Params }) => {
       alert('There was an issue adding the product to your cart. Please try again.');
     }
   };
-  
-  return (
 
-    
+  return (
     <div className="mt-5">
       <BreadCrumps product={data.title} productId={data.id} />
       <div className="max-w-4xl mx-auto p-6">
@@ -141,13 +147,8 @@ const Post = ({ params }: { params: Params }) => {
 
         <div className="mt-12">
           <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
-            <h2 className="text-xl font-semibold mb-4">
-              Additional Information
-            </h2>
-            <p>
-              Here you can add more details or related information about the
-              product.
-            </p>
+            <h2 className="text-xl font-semibold mb-4">Additional Information</h2>
+            <p>Here you can add more details or related information about the product.</p>
           </div>
           <button
             onClick={handleAddToCart}
@@ -156,6 +157,9 @@ const Post = ({ params }: { params: Params }) => {
             Add to cart
           </button>
         </div>
+
+        {/* Related Products Section */}
+        <RelatedProducts products={relatedProducts} />
       </div>
     </div>
   );

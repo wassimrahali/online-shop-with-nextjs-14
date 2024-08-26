@@ -5,7 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 import Pagination from "./Pagination";
 import BreadCrumps from "@/Componnents/BreadCrumps/BreadCrumps";
-import StarRating from "@/Componnents/StarRating/StarRating";
 import { Rubik } from "next/font/google";
 const rubik = Rubik({ subsets: ["latin"] });
 
@@ -71,17 +70,15 @@ const Blog = () => {
   return (
     <div className="mt-5">
       <div className="relative space-y-5">
-      {/* <BreadCrumps productId={""} product={""} />  */}
+        {/* <BreadCrumps productId={""} product={""} />  */}
         <h2 className="text-lg font-semibold text-gray-800">
-          PRODUITS SPECIAUX
+          SPECIAL OFFRE !{" "}
         </h2>
         <div className="absolute left-0 mt-2 h-0.5 w-8 bg-primary"></div>
         <div className="mt-2.5 h-0.5 bg-gray-200"></div>
       </div>
       <div className="flex flex-col items-center justify-center min-h-screen py-8">
-        <div className="text-center">
-        
-        </div>
+        <div className="text-center"></div>
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {paginatedData.map((product: any) => (
             <article
@@ -111,6 +108,7 @@ const Blog = () => {
                 <div className="mt-auto pt-4 pb-4 ml-4 mr-4">
                   <button className="w-full px-4 py-2 text-black rounded text-sm ">
                     <p className="text-green-500"> {product.price} DT</p>
+                    {/* <p>{product.category}</p> */}
                   </button>
                 </div>
               </Link>
