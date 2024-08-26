@@ -5,7 +5,8 @@ import Skeleton from "../../../Componnents/Skeleton/Skeleton";
 import BreadCrumps from "@/Componnents/BreadCrumps/BreadCrumps";
 import { useCart } from "@/Context/CartContext";
 import StarRating from "../../../Componnents/StarRating/StarRating";
-
+import { Rubik } from "next/font/google";
+const rubik = Rubik({ subsets: ["latin"] });
 interface Params {
   id: string;
 }
@@ -62,6 +63,8 @@ const Post = ({ params }: { params: Params }) => {
   };
 
   return (
+
+    
     <div className="mt-5">
       <BreadCrumps product={data.title} productId={data.id} />
       <div className="max-w-4xl mx-auto p-6">

@@ -12,7 +12,7 @@ import AddToCartButton from "../AddToCartButton/AddToCartButton";
 const Navbar = () => {
   const [state, setState] = useState(false);
   const [loading, setLoading] = useState(true);
-  
+
   const { user } = useUser();
 
   React.useEffect(() => {
@@ -58,7 +58,10 @@ const Navbar = () => {
                     Login
                   </Link>
                 ) : (
-                  <UserButton afterSignOutUrl="/" />
+                  <div className="relative me-4">
+                    <UserButton afterSignOutUrl="/" />
+                    <span className="top-3.5 start-6 absolute w-3.5 h-3.5 bg-green-500 border-2 border-white rounded-full"></span>
+                  </div>
                 )}
                 <button
                   className="text-primary outline-none p-2 rounded-md focus:border-gray-400 focus:border"
@@ -124,7 +127,10 @@ const Navbar = () => {
                   Login
                 </Link>
               ) : (
-                <UserButton afterSignOutUrl="/" />
+                <div className="relative me-4">
+                  <UserButton afterSignOutUrl="/" />
+                  <span className="top-3.5 start-6 absolute w-3.5 h-3.5 bg-green-500 border-2 border-white rounded-full"></span>
+                </div>
               )}
             </div>
           </div>

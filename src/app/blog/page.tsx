@@ -69,12 +69,11 @@ const Blog = () => {
   );
 
   return (
-    <div className={rubik.className}>
       <div className="mt-5">
         <BreadCrumps productId={""} product={""} />
         <div className="flex flex-col items-center justify-center min-h-screen py-8">
           <div className="text-center">
-            <h1 className="text-3xl text-green-600 font-semibold">Blog</h1>
+            <h1 className="text-3xl text-green-500 font-semibold">Blog</h1>
             <p className="mt-3 text-gray-500">
               Blogs that are loved by the community. Updated every hour.
             </p>
@@ -121,7 +120,6 @@ const Blog = () => {
           onPageChange={handlePageChange}
         />
       </div>
-    </div>
   );
 };
 

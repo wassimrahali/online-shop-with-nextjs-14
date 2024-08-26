@@ -21,8 +21,8 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <CartProvider>
-        <html lang="en" className={rubik.className}>
-          <body suppressHydrationWarning={true}>
+        <html lang="en">
+          <body suppressHydrationWarning={true}   className={rubik.className}>
             <ThemeProvider>
               <div className="container mx-auto">
                 <Navbar />
