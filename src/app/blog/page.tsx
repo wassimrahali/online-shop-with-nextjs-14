@@ -69,57 +69,61 @@ const Blog = () => {
   );
 
   return (
-      <div className="mt-5">
-        <BreadCrumps productId={""} product={""} />
-        <div className="flex flex-col items-center justify-center min-h-screen py-8">
-          <div className="text-center">
-            <h1 className="text-3xl text-green-500 font-semibold">Blog</h1>
-            <p className="mt-3 text-gray-500">
-              Blogs that are loved by the community. Updated every hour.
-            </p>
-          </div>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {paginatedData.map((product: any) => (
-              <article
-                className="max-w-md mx-auto  rounded-md flex flex-col justify-between h-full duration-300 "
-                key={product.id}
-              >
-                <Link
-                  href={`/blog/${product.id}`}
-                  className="flex flex-col h-full"
-                >
-                  <div>
-                    <Image
-                      width={500}
-                      height={300}
-                      quality={75}
-                      src={product.image}
-                      alt={product.title}
-                      className="w-full h-48 object-cover rounded-t-md"
-                    />
-                    <div className="flex items-center mt-2 pt-3 ml-4 mr-2">
-                      <span className="block text-slate-900 ">
-                        {product.title}
-                      </span>
-                      <div className="flex mt-4"></div>
-                    </div>
-                  </div>
-                  <div className="mt-auto pt-4 pb-4 ml-4 mr-4">
-                    <button className="w-full px-4 py-2 text-black rounded text-sm ">
-                      <p className="text-green-500"> {product.price} DT</p>
-                    </button>
-                  </div>
-                </Link>
-              </article>
-            ))}
-          </div>
-        </div>
-        <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPageChange={handlePageChange}
-        />
+    <div className="mt-5">
+      <div className="relative space-y-5">
+      {/* <BreadCrumps productId={""} product={""} />  */}
+        <h2 className="text-lg font-semibold text-gray-800">
+          PRODUITS SPECIAUX
+        </h2>
+        <div className="absolute left-0 mt-2 h-0.5 w-8 bg-primary"></div>
+        <div className="mt-2.5 h-0.5 bg-gray-200"></div>
       </div>
+      <div className="flex flex-col items-center justify-center min-h-screen py-8">
+        <div className="text-center">
+        
+        </div>
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {paginatedData.map((product: any) => (
+            <article
+              className="max-w-md mx-auto  rounded-md flex flex-col justify-between h-full duration-300 hover:bg-slate-100 "
+              key={product.id}
+            >
+              <Link
+                href={`/blog/${product.id}`}
+                className="flex flex-col h-full"
+              >
+                <div>
+                  <Image
+                    width={500}
+                    height={300}
+                    quality={75}
+                    src={product.image}
+                    alt={product.title}
+                    className="w-full h-48 object-cover rounded-t-md"
+                  />
+                  <div className="flex items-center mt-2 pt-3 ml-4 mr-2">
+                    <span className="block text-slate-900 ">
+                      {product.title}
+                    </span>
+                    <div className="flex mt-4"></div>
+                  </div>
+                </div>
+                <div className="mt-auto pt-4 pb-4 ml-4 mr-4">
+                  <button className="w-full px-4 py-2 text-black rounded text-sm ">
+                    <p className="text-green-500"> {product.price} DT</p>
+                  </button>
+                </div>
+              </Link>
+            </article>
+          ))}
+        </div>
+      </div>
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={handlePageChange}
+      />
+    </div>
   );
 };
 

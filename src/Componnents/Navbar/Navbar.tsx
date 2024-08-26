@@ -52,7 +52,7 @@ const Navbar = () => {
                 {user && <AddToCartButton />}
                 {!user ? (
                   <Link
-                    className="bg-primary py-2 px-4 text-black font-light"
+                    className="bg-primary py-2 px-4 text-slate-50 font-light"
                     href="/sign-in"
                   >
                     Login
@@ -121,7 +121,7 @@ const Navbar = () => {
               {user && <AddToCartButton />}
               {!user ? (
                 <Link
-                  className="bg-primary py-2 px-4 text-black font-light"
+                  className="bg-primary py-2 px-4  text-slate-50 font-light"
                   href="/sign-in"
                 >
                   Login

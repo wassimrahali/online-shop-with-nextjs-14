@@ -32,7 +32,7 @@ const Post = ({ params }: { params: Params }) => {
         setLoading(false);
       }
     };
-
+    
     fetchProduct(params.id);
   }, [params.id]);
 
@@ -43,7 +43,7 @@ const Post = ({ params }: { params: Params }) => {
   if (loading) {
     return <Skeleton />;
   }
-
+  
   if (error) {
     return (
       <div className="p-6 text-center text-red-600">
@@ -51,17 +51,56 @@ const Post = ({ params }: { params: Params }) => {
       </div>
     );
   }
+  
 
-  const handleAddToCart = () => {
+  
+  
+  const handleAddToCart = async () => {
+    // Prepare the item data to be sent to Strapi
     const itemToAdd = {
       id: data.id,
       title: data.title,
       price: data.price,
-      image: data.image,
-    }; // Adjust as necessary
+      description: data.description, // Assuming description is needed
+      image:data.image
+      
+    };
+  
     addToCart(itemToAdd);
-  };
+    
+    const requestData = {
+      data: {
+        title: itemToAdd.title,
+        description: itemToAdd.description,
+        price: itemToAdd.price,
+        image:itemToAdd.image
 
+      },
+    };
+  
+    try {
+      const res = await fetch('http://127.0.0.1:1337/api/carts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestData),
+      });
+  
+      if (!res.ok) {
+        const errorResponse = await res.json();
+        console.log('Error response:', errorResponse);
+        throw new Error('Failed to add product to cart on the server');
+      }
+  
+      const responseData = await res.json();
+      console.log('Product added to server cart:', responseData);
+    } catch (error) {
+      console.error('Error:', error);
+      alert('There was an issue adding the product to your cart. Please try again.');
+    }
+  };
+  
   return (
 
     
@@ -86,7 +125,7 @@ const Post = ({ params }: { params: Params }) => {
         <div className="text-gray-700 leading-relaxed">
           <p>{data.description}</p>
           <p className="w-full mt-4 py-2 text-green-600 rounded text-lg">
-            {data.price} DT
+            {data.price}DT
           </p>
         </div>
 

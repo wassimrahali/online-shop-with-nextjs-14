@@ -45,7 +45,7 @@ const OrderComponent: React.FC = () => {
 
         <div>
           {cartItems.length === 0 ? (
-            <p className="text-center text-red-500">Sorry, but you haven't selected any products!</p>
+            <p className="text-center text-red-500">Sorry, but you havent selected any products!</p>
           ) : (
             <>
               <ul className="space-y-4">
@@ -115,7 +115,7 @@ const OrderComponent: React.FC = () => {
                     />
                     <button
                       onClick={handleApplyDiscount}
-                      className="bg-slate-800 px-5 py-2 text-sm text-white transition hover:bg-gray-600 w-full sm:w-auto"
+                      className="bg-slate-800 px-5 py-[10.75px] text-sm text-white transition hover:bg-gray-600 w-full sm:w-auto"
                     >
                       Apply
                     </button>
