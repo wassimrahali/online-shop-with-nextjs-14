@@ -43,7 +43,7 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({ products }) => {
             key={product.id}
             className="max-w-md mx-auto  rounded-md flex flex-col justify-between  h-[430px] duration-300 hover:bg-slate-100 "
           >
-            <Link href={`/products/${product.id}`} passHref>
+            <Link href={`/blog/${product.id}`} passHref>
               <div className="flex flex-col h-full">
                 <div>
                   <Image
@@ -52,7 +52,7 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({ products }) => {
                     quality={75}
                     src={product.image}
                     alt={product.title}
-                    className="w-full h-48 object-cover rounded-t-md"
+                    className="w-full h-48 object-cover rounded-t-md hover:opacity-60 transition-all duration-300"
                   />
                 </div>
                 <div className="p-4 flex flex-col justify-between">
@@ -63,8 +63,7 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({ products }) => {
                         reviewCount={product.rating.count}
                       />
                     <p className="text-green-500  mt-2">{product.price} DT</p>
-                    <div className="mt-2 ">
-                    </div>
+                  
                   </div>
                 </div>
               </div>

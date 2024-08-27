@@ -9,12 +9,12 @@ import StarRating from "../../../Componnents/StarRating/StarRating";
 import { Rubik } from "next/font/google";
 import RelatedProducts from "@/Componnents/Category/RelatedComponnents"; // Import the new component
 
-
 const rubik = Rubik({ subsets: ["latin"] });
 
 interface Params {
   id: string;
 }
+
 
 const Post = ({ params }: { params: Params }) => {
   const { cartItems, addToCart } = useCart();
@@ -22,7 +22,8 @@ const Post = ({ params }: { params: Params }) => {
   const [relatedProducts, setRelatedProducts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-
+  const [showAlert, setShowAlert] = useState(false); // State for alert visibility
+  
   useEffect(() => {
     const fetchProduct = async (id: string) => {
       try {
@@ -62,11 +63,15 @@ const Post = ({ params }: { params: Params }) => {
       <div className="p-6 text-center text-red-600">
         <p>{error}</p>
       </div>
-    );
+        );
   }
 
-  const handleAddToCart = async () => {
-    // Prepare the item data to be sent to Strapi
+
+
+  
+
+
+  const handleAddToCart = () => {
     const itemToAdd = {
       id: data.id,
       title: data.title,
@@ -76,37 +81,10 @@ const Post = ({ params }: { params: Params }) => {
     };
 
     addToCart(itemToAdd);
+    setShowAlert(true); // Show the alert after adding to cart
 
-    const requestData = {
-      data: {
-        title: itemToAdd.title,
-        description: itemToAdd.description,
-        price: itemToAdd.price,
-        image: itemToAdd.image
-      }
-    };
-
-    try {
-      const res = await fetch('http://127.0.0.1:1337/api/carts', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(requestData)
-      });
-
-      if (!res.ok) {
-        const errorResponse = await res.json();
-        console.log('Error response:', errorResponse);
-        throw new Error('Failed to add product to cart on the server');
-      }
-
-      const responseData = await res.json();
-      console.log('Product added to server cart:', responseData);
-    } catch (error) {
-      console.error('Error:', error);
-      alert('There was an issue adding the product to your cart. Please try again.');
-    }
+    // Optionally, you can hide the alert after a few seconds
+    setTimeout(() => setShowAlert(false), 3000);
   };
 
   return (
@@ -156,6 +134,24 @@ const Post = ({ params }: { params: Params }) => {
           >
             Add to cart
           </button>
+
+          {/* Render the alert conditionally */}
+          {showAlert && (
+            <div role="alert" className="alert alert-success mt-4 flex items-center p-4 bg-green-100 text-green-800 rounded">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6 shrink-0 stroke-current"
+                fill="none"
+                viewBox="0 0 24 24">
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span className="ml-2">Your Order has been placed to the cart !</span>
+            </div>
+          )}
         </div>
 
         {/* Related Products Section */}

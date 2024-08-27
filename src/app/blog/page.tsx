@@ -68,7 +68,7 @@ const Blog = () => {
   );
 
   return (
-    <div className="mt-5">
+    <div className="mt-10">
       <div className="relative space-y-5">
         {/* <BreadCrumps productId={""} product={""} />  */}
         <h2 className="text-lg font-semibold text-gray-800">
@@ -79,10 +79,10 @@ const Blog = () => {
       </div>
       <div className="flex flex-col items-center justify-center min-h-screen py-8">
         <div className="text-center"></div>
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 ">
           {paginatedData.map((product: any) => (
             <article
-              className="max-w-md mx-auto  rounded-md flex flex-col justify-between h-full duration-300 hover:bg-slate-100 "
+              className="max-w-md mx-auto  rounded-md flex flex-col justify-between h-full  hover:bg-slate-100 hover:opacity-90 transition-all duration-300 "
               key={product.id}
             >
               <Link
@@ -96,7 +96,7 @@ const Blog = () => {
                     quality={75}
                     src={product.image}
                     alt={product.title}
-                    className="w-full h-48 object-cover rounded-t-md"
+                    className="w-full h-48 object-cover rounded-t-md hover:opacity-60 transition-all duration-300"
                   />
                   <div className="flex items-center mt-2 pt-3 ml-4 mr-2">
                     <span className="block text-slate-900 ">

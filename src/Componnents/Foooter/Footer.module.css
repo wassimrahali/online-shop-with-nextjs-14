@@ -20,16 +20,13 @@
     opacity: 0.8;
 }
 
-.img{
+.img {
     opacity: 0.8;
     filter: grayscale(100%);
-
-
-}
-.img:hover{
+  }
+  
+  .img:hover {
     filter: grayscale(0%);
-
     opacity: 1;
-    gap:20px;
-    display: flex;
-}
+  }
+  
