@@ -57,7 +57,7 @@ Key Features:
 
 ### Built With
 
-* [Next.js](https://nextjs.org/) 
+* [Next.js](https://nextjs.org/)   ![image](https://github.com/user-attachments/assets/a67b9e07-7145-44b4-b1d2-8c6a77ae0f29)
 * [React](https://reactjs.org/)
 * [Strapi](https://strapi.io/)
 * [Clerk](https://clerk.dev/)
@@ -72,19 +72,28 @@ To get a local copy up and running, follow these simple steps.
 
 ### Prerequisites
 
-* npm
-  ```sh
-  npm install npm@latest -g
+# Clone the repository
 git clone https://github.com/wassimrahali/online-shop-with-nextjs-14.git
 
-npm install
-npm run dev
+# Navigate to the project directory
 cd online-shop-with-nextjs-14
 
+# Install the latest version of npm globally
+npm install npm@latest -g
 
-Roadmap
- Initial release
- Add payment integration
- Improve UI/UX with animations
- Add user profile management
+# Install project dependencies
+npm install
+
+# Run the development server
+npm run dev
+
+
+ 🎉 Initial release
+ 💳 Add payment integration
+ ✨ Improve UI/UX with animations
+ 👤 Add user profile management
+
+
+
+
 
