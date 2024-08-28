@@ -86,7 +86,7 @@ const Blog = () => {
               key={product.id}
             >
               <Link
-                href={`/blog/${product.id}`}
+                href={`/products/${product.id}`}
                 className="flex flex-col h-full"
               >
                 <div>

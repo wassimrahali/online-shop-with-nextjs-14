@@ -1,5 +1,5 @@
 import { Metadata } from "next/types";
-import Blog from "./blog/page";
+import Products from "../app/products/page";
 import React from "react";
 import Hero from "@/Componnents/Hero/Hero";
 
@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Blog />
+      <Products />
     </>
   );
 }

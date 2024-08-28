@@ -7,7 +7,8 @@ import BreadCrumps from "@/Componnents/BreadCrumps/BreadCrumps";
 import { useCart } from "@/Context/CartContext";
 import StarRating from "../../../Componnents/StarRating/StarRating";
 import { Rubik } from "next/font/google";
-import RelatedProducts from "@/Componnents/Category/RelatedComponnents"; // Import the new component
+import RelatedProducts from "@/Componnents/Category/RelatedComponnents"; 
+import SuccessModal from "../../../Componnents/Elements/SuccessModal"; 
 
 const rubik = Rubik({ subsets: ["latin"] });
 
@@ -15,19 +16,18 @@ interface Params {
   id: string;
 }
 
-
 const Post = ({ params }: { params: Params }) => {
   const { cartItems, addToCart } = useCart();
   const [data, setData] = useState<any>(null);
   const [relatedProducts, setRelatedProducts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [showAlert, setShowAlert] = useState(false); // State for alert visibility
   
+  const [showModal, setShowModal] = useState(false); 
   useEffect(() => {
     const fetchProduct = async (id: string) => {
       try {
-        const res = await fetch(`https://fakestoreapi.com/products/${id}`);
+        const res = await fetch(`https://fakestoreapi.com/products/${id}/`);
         if (!res.ok) {
           throw new Error("Failed to fetch data");
         }
@@ -63,13 +63,8 @@ const Post = ({ params }: { params: Params }) => {
       <div className="p-6 text-center text-red-600">
         <p>{error}</p>
       </div>
-        );
+    );
   }
-
-
-
-  
-
 
   const handleAddToCart = () => {
     const itemToAdd = {
@@ -81,10 +76,9 @@ const Post = ({ params }: { params: Params }) => {
     };
 
     addToCart(itemToAdd);
-    setShowAlert(true); // Show the alert after adding to cart
+    setShowModal(true); 
+    setTimeout(() => setShowModal(false),1000);
 
-    // Optionally, you can hide the alert after a few seconds
-    setTimeout(() => setShowAlert(false), 3000);
   };
 
   return (
@@ -135,26 +129,10 @@ const Post = ({ params }: { params: Params }) => {
             Add to cart
           </button>
 
-          {/* Render the alert conditionally */}
-          {showAlert && (
-            <div role="alert" className="alert alert-success mt-4 flex items-center p-4 bg-green-100 text-green-800 rounded">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 shrink-0 stroke-current"
-                fill="none"
-                viewBox="0 0 24 24">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <span className="ml-2">Your Order has been placed to the cart !</span>
-            </div>
-          )}
+          <SuccessModal isOpen={showModal} onClose={() => setShowModal(false)} />
         </div>
 
-        {/* Related Products Section */}
+       
         <RelatedProducts products={relatedProducts} />
       </div>
     </div>

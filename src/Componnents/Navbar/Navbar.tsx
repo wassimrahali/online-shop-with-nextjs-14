@@ -5,10 +5,11 @@ import { links } from "./data";
 import Logo from "../Elements/Logo";
 import DarkModeToggle from "../DarkModeToggle/DarkModeToggle";
 import { UserButton, useUser } from "@clerk/nextjs";
-import Image from "next/image";
-import Loader from "../../app/assets/loader.svg";
 import AddToCartButton from "../AddToCartButton/AddToCartButton";
 import { syncUserWithStrapi } from "../../utils/userUtils"; // Update import path
+import CloseIcon from "../Elements/CloseIcon";
+import HamburgerIcon from "../Elements/HamburgerIcon";
+import LoaderComponent from "../Elements/LoaderComponnent";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -45,9 +46,15 @@ const Navbar = () => {
                   </Link>
                 ) : (
                   <div className="relative me-4">
-                    <UserButton afterSignOutUrl="/" />
-                    <span className="top-3.5 start-6 absolute w-3.5 h-3.5 bg-green-500 border-2 border-white rounded-full"></span>
-                  </div>
+                  <UserButton afterSignOutUrl="/" />
+                  <span className="absolute top-3.5 start-6">
+                    <span className="flex relative -mt-2 ml-1">
+                      <span className="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-green-500 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500 border-2 border-white"></span>
+                    </span>
+                  </span>
+                </div>
+                
                 )}
                 <button
                   className="text-primary outline-none p-2 rounded-md focus:border-gray-400 focus:border"
@@ -83,10 +90,19 @@ const Navbar = () => {
                 </Link>
               ) : (
                 <div className="relative me-4">
-                  <UserButton afterSignOutUrl="/" />
-                  <span className="top-3.5 start-6 absolute w-3.5 h-3.5 bg-green-500 border-2 border-white rounded-full"></span>
-                </div>
+                <UserButton afterSignOutUrl="/" />
+                
+                <span className="absolute">
+                  <span className="flex relative -mt-3.5 ml-6">
+                    <span className="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-green-500 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500 border-2 border-white"></span>
+                  </span>
+                </span>
+              </div>
               )}
+
+
+
             </div>
           </div>
         </div>
@@ -97,34 +113,5 @@ const Navbar = () => {
   );
 };
 
-const LoaderComponent = () => (
-  <div className="fixed inset-0 flex justify-center items-center bg-white z-50">
-    <div className="absolute animate-spin rounded-full h-32 w-32 border-t-4 border-b-4 border-primary"></div>
-    <Image
-      priority={true}
-      src={Loader}
-      className="rounded-full h-28 w-28"
-      alt="Loading"
-      width={112}
-      height={112}
-    />
-  </div>
-);
-
-const HamburgerIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8h16M4 16h16" />
-  </svg>
-);
-
-const CloseIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
-    <path
-      fillRule="evenodd"
-      d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-      clipRule="evenodd"
-    />
-  </svg>
-);
 
 export default Navbar;

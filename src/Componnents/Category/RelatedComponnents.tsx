@@ -43,7 +43,7 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({ products }) => {
             key={product.id}
             className="max-w-md mx-auto  rounded-md flex flex-col justify-between  h-[430px] duration-300 hover:bg-slate-100 "
           >
-            <Link href={`/blog/${product.id}`} passHref>
+            <Link href={`/products/${product.id}`} passHref>
               <div className="flex flex-col h-full">
                 <div>
                   <Image
