@@ -1,33 +1,14 @@
 
 <a id="readme-top"></a>
-
-<!-- PROJECT SHIELDS -->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
 <br />
 <div align="center">
-  <a href="https://github.com/your_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
+
 
   <h3 align="center">My E-Shop Project</h3>
 
   <p align="center">
     A full-featured e-commerce application built with Next.js, Strapi, and Tailwind CSS.
-    <br />
-    <a href="https://github.com/your_username/repo_name"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/your_username/repo_name">View Demo</a>
-    ·
-    <a href="https://github.com/your_username/repo_name/issues/new?labels=bug&template=bug-report.md">Report Bug</a>
-    ·
-    <a href="https://github.com/your_username/repo_name/issues/new?labels=enhancement&template=feature-request.md">Request Feature</a>
+
   </p>
 </div>
 
@@ -58,7 +39,12 @@
 
 ## About The Project
 
-[![Product Screenshot][product-screenshot]](https://example.com)
+
+![screencapture-localhost-3000-2024-08-28-19_41_00](https://github.com/user-attachments/assets/cc8b21f4-6de2-4759-b7d6-0f82bab1f8e9)
+
+![screencapture-localhost-3000-products-14-2024-08-28-19_40_11](https://github.com/user-attachments/assets/0e34e6f3-1650-415b-b551-56e68e83e734)
+![screencapture-localhost-3000-order-2024-08-28-19_41_20](https://github.com/user-attachments/assets/10f2a711-e82e-4d43-b187-27f3e30b9f7d)
+
 
 This project is a fully functional e-commerce platform where users can browse, add to cart, and purchase products. Built with modern web technologies, the application is both fast and responsive.
 
@@ -71,7 +57,7 @@ Key Features:
 
 ### Built With
 
-* [Next.js](https://nextjs.org/)
+* [Next.js](https://nextjs.org/) 
 * [React](https://reactjs.org/)
 * [Strapi](https://strapi.io/)
 * [Clerk](https://clerk.dev/)
@@ -89,9 +75,16 @@ To get a local copy up and running, follow these simple steps.
 * npm
   ```sh
   npm install npm@latest -g
+git clone https://github.com/wassimrahali/online-shop-with-nextjs-14.git
+
+npm install
+npm run dev
+cd online-shop-with-nextjs-14
 
 
-![screencapture-localhost-3000-2024-08-28-19_41_00](https://github.com/user-attachments/assets/cc8b21f4-6de2-4759-b7d6-0f82bab1f8e9)
+Roadmap
+ Initial release
+ Add payment integration
+ Improve UI/UX with animations
+ Add user profile management
 
-![screencapture-localhost-3000-products-14-2024-08-28-19_40_11](https://github.com/user-attachments/assets/0e34e6f3-1650-415b-b551-56e68e83e734)
-![screencapture-localhost-3000-order-2024-08-28-19_41_20](https://github.com/user-attachments/assets/10f2a711-e82e-4d43-b187-27f3e30b9f7d)
