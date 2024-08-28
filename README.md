@@ -29,7 +29,6 @@ Key Features:
 * **User Authentication**: Secure login and registration implemented with Clerk.
 * **Responsive Design**: Styled with Tailwind CSS for a clean and adaptive user interface.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
 
