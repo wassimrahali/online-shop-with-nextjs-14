@@ -91,11 +91,11 @@ npm run dev
 
 
  ✅ 🎉 Initial release
- <br>
+ 
  ✅ 👤 Add user profile management
- <br>
+ 
 🔴 💳 Add payment integration
- <br>
+
 🔴 ✨ Improve UI/UX with animations
 
 
