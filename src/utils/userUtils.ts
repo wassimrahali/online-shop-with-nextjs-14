@@ -40,6 +40,7 @@ export const syncUserWithStrapi = async (clerkUser: any) => {
 
     const data = await res.json();
     console.log("Strapi response data:", data);
+    console.log("Strapi response data:", data.jwt);
     return data;
   } catch (error) {
     console.error("Error syncing user with Strapi:", error);
