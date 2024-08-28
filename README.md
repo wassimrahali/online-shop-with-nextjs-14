@@ -1,7 +1,7 @@
 ![68747470733a2f2f696d672e736869656c64732e696f2f62616467652f52656163742d3230323332413f7374796c653d666f722d7468652d6261646765266c6f676f3d7265616374266c6f676f436f6c6f723d363144414642](https://github.com/user-attachments/assets/1b691700-07f3-4409-9407-30ebad138d28)![68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6e6578742e6a732d3030303030303f7374796c653d666f722d7468652d6261646765266c6f676f3d6e657874646f746a73266c6f676f436f6c6f723d7768697465](https://github.com/user-attachments/assets/de2c55a2-3c04-4164-9947-05600ce7d59c)
 <a id="readme-top"></a>
 <br />
-<div style="text-color:red" align="center">
+<div style="text-color👱‍♂️" align="center">
 
 
   <h3 align="center">My E-Shop Project</h3>
@@ -31,7 +31,7 @@ Key Features:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Built Wit
+### Built With
 
 * ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
 * ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
@@ -41,7 +41,6 @@ Key Features:
 * ![Lorem Ipsum](https://img.shields.io/badge/Lorem%20Ipsum-333333?style=for-the-badge&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4/8/w/wAENzIAAeUHwQhf/8CAAAAABJRU5ErkJggg==&logoColor=white)
 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Getting Started
 
