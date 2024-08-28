@@ -58,11 +58,12 @@ Key Features:
 ### Built Wit
 
 * ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
-* [React](https://reactjs.org/)
-* [Strapi](https://strapi.io/)
-* [Clerk](https://clerk.dev/)
-* [Tailwind CSS](https://tailwindcss.com/)
-* [Lorem Ipsum](https://loremipsum.io/) for generating descriptions and logos
+* ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+* ![Strapi](https://img.shields.io/badge/Strapi-2E7EEA?style=for-the-badge&logo=strapi&logoColor=white)
+* ![Clerk](https://img.shields.io/badge/Clerk-0A0A0A?style=for-the-badge&logo=clerk&logoColor=FFFFFF)
+* ![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+* ![Lorem Ipsum](https://img.shields.io/badge/Lorem%20Ipsum-333333?style=for-the-badge&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4/8/w/wAENzIAAeUHwQhf/8CAAAAABJRU5ErkJggg==&logoColor=white)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
