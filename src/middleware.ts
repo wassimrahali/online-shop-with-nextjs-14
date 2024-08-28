@@ -10,6 +10,6 @@ export const config = {
     '/(api|trpc)(.*)',
     // Apply middleware to all other routes except public routes and static files
     '/((?!_next|[^?]*\\.(?:html?|css|tsx|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
-    '/products'
+    '/products',
   ],
 };

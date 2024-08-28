@@ -1,4 +1,3 @@
-// components/SuccessModal.tsx
 import * as Dialog from '@radix-ui/react-dialog';
 
 interface SuccessModalProps {
@@ -10,12 +9,12 @@ const SuccessModal: React.FC<SuccessModalProps> = ({ isOpen, onClose }) => {
   return (
     <Dialog.Root open={isOpen} onOpenChange={onClose}>
       <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 bg-black opacity-40" />
-        <Dialog.Content className="fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-full max-w-lg p-6 bg-white  shadow-lg">
-          <div className="flex items-center justify-center w-12 h-12 mx-auto bg-primary rounded-full">
+        <Dialog.Overlay className="fixed inset-0 bg-black opacity-40 transition-opacity duration-300" />
+        <Dialog.Content className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-lg p-6 bg-white shadow-lg rounded-lg transition-transform duration-300">
+          <div className="flex items-center justify-center w-12 h-12 mx-auto bg-primary rounded-full mb-4">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="w-5 h-5 text-slate-50"
+              className="w-6 h-6 text-white"
               viewBox="0 0 20 20"
               fill="currentColor"
             >
@@ -26,16 +25,16 @@ const SuccessModal: React.FC<SuccessModalProps> = ({ isOpen, onClose }) => {
               />
             </svg>
           </div>
-          <Dialog.Title className="text-lg font-medium text-gray-800 text-center mt-3">
+          <Dialog.Title className="text-lg font-medium text-gray-800 text-center">
             Successfully added to cart!
           </Dialog.Title>
           <Dialog.Description className="mt-1 text-sm leading-relaxed text-center text-gray-500">
             Your item has been added to the cart successfully.
           </Dialog.Description>
-          <div className="mt-4 flex justify-center gap-2">
+          <div className="mt-4 flex justify-center">
             <Dialog.Close asChild>
               <button
-                className="w-full p-2.5 text-white bg-primary  font-medium focus:bg-primary"
+                className="px-4 py-2 bg-primary text-white font-medium rounded-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 transition-colors duration-300"
                 onClick={onClose}
               >
                 Close
