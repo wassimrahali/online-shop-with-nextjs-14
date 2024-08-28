@@ -73,7 +73,8 @@ To get a local copy up and running, follow these simple steps.
 
 ### Prerequisites
 
-# Clone the repository
+```sh
+### `Clone the repository`
 git clone https://github.com/wassimrahali/online-shop-with-nextjs-14.git
 
 # Navigate to the project directory
@@ -89,10 +90,14 @@ npm install
 npm run dev
 
 
- 🎉 Initial release
- 💳 Add payment integration
- ✨ Improve UI/UX with animations
- 👤 Add user profile management
+ ✅ 🎉 Initial release
+ <br>
+ ✅ 👤 Add user profile management
+ <br>
+🔴 💳 Add payment integration
+ <br>
+🔴 ✨ Improve UI/UX with animations
+
 
 
 
